@@ -6,6 +6,8 @@ const cors = require('cors');
 const csurf = require('csurf');
 const debug = require('debug');
 
+require('./models/User');
+
 const usersRouter = require('./routes/api/users');
 const tweetsRouter = require('./routes/api/tweets');
 const csrfRouter = require('./routes/api/csrf');
