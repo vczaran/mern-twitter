@@ -7,6 +7,8 @@ const csurf = require('csurf');
 const debug = require('debug');
 
 require('./models/User');
+require('./config/passport');
+const passport = require('passport');
 
 const usersRouter = require('./routes/api/users');
 const tweetsRouter = require('./routes/api/tweets');
@@ -18,6 +20,8 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+app.use(passport.initialize());
 
 // CORS Security middleware - enable cors only in development (since server and react are on different ports)
 if (!isProduction) {
